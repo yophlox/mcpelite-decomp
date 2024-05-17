@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/bgtiled"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:tileMode="repeat">
+    <TextView
+        android:typeface="monospace"
+        android:layout_width="360dp"
+        android:layout_height="24dp"
+        android:text="@string/renameworld_title"/>
+    <com.mojang.android.EditTextAscii
+        android:typeface="monospace"
+        android:id="@+id/editText_worldNameRename"
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:text="@string/renameworld_saved_world"
+        android:singleLine="true"
+        android:maxLength="64"
+        android:imeOptions="actionDone"
+        android:imeActionLabel="Ok"/>
+    <View
+        android:layout_width="360dp"
+        android:layout_height="10px"/>
+</LinearLayout>
