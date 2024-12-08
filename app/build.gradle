@@ -8,8 +8,7 @@ android {
 
     defaultConfig {
         applicationId 'com.mojang.minecraftpe.demo'
-        minSdkVersion 9
-        targetSdkVersion 9
+        minSdkVersion 14
         versionCode 2016
         versionName "0.2.1"
         useLibrary 'org.apache.http.legacy'
