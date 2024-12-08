@@ -1,41 +1,38 @@
 package com.mojang.minecraftpe;
 
-import com.android.vending.licensing.t;
+import android.app.Activity;
+import android.content.Context;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.tasks.Task;
 
-/* loaded from: classes.dex */
-final class k implements t {
-    private /* synthetic */ Minecraft_Market a;
+public class k {
+    private ReviewManager reviewManager;
+    private Activity activity;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(Minecraft_Market minecraft_Market) {
-        this(minecraft_Market, (byte) 0);
+    public k(Activity activity) {
+        this.activity = activity; 
+        reviewManager = ReviewManagerFactory.create(activity); 
     }
 
-    private k(Minecraft_Market minecraft_Market, byte b) {
-        this.a = minecraft_Market;
-    }
+    public void checkLicensing() {
+        Task<ReviewInfo> flow = reviewManager.requestReviewFlow();
 
-    @Override // com.android.vending.licensing.t
-    public final void a() {
-        if (this.a.isFinishing()) {
-            return;
-        }
-        Minecraft_Market.a(this.a, 0);
-    }
+        flow.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                ReviewInfo reviewInfo = task.getResult();  
+                Task<Void> launchFlow = reviewManager.launchReviewFlow(activity, reviewInfo); 
 
-    @Override // com.android.vending.licensing.t
-    public final void a(com.android.vending.licensing.j jVar) {
-        if (this.a.isFinishing()) {
-            return;
-        }
-        Minecraft_Market.a(this.a, jVar.ordinal() + 1000);
-    }
-
-    @Override // com.android.vending.licensing.t
-    public final void b() {
-        if (this.a.isFinishing()) {
-            return;
-        }
-        Minecraft_Market.a(this.a, 106);
+                launchFlow.addOnCompleteListener(launchTask -> {
+                    if (launchTask.isSuccessful()) {
+                    } else {
+                        Exception error = launchTask.getException();
+                    }
+                });
+            } else {
+                Exception error = task.getException();
+            }
+        });
     }
 }

@@ -14,6 +14,6 @@ public final class h implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public final void onClick(DialogInterface dialogInterface, int i) {
-        this.a.d = 0;
+        // die
     }
 }

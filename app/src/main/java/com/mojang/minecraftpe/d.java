@@ -16,11 +16,6 @@ final class d implements View.OnClickListener {
     public final void onClick(View view) {
         AlertDialog alertDialog;
         AlertDialog alertDialog2;
-        alertDialog = this.a.a.g;
-        if (alertDialog != null) {
-            alertDialog2 = this.a.a.g;
-            alertDialog2.dismiss();
-        }
         MainActivity.b(this.a.a);
     }
 }

@@ -48,28 +48,16 @@ public final class f implements Runnable {
             if (this.c != 0 && this.c != -1 && (findViewById = inflate.findViewById(this.c)) != null) {
                 findViewById.setOnClickListener(new e(this));
             }
-            alertDialog4 = this.a.g;
-            alertDialog4.setView(inflate);
             if (this.f != null) {
                 for (int i : this.f) {
                     KeyEvent.Callback findViewById3 = inflate.findViewById(i);
                     if (findViewById3 instanceof StringValue) {
-                        arrayList2 = this.a.f;
-                        arrayList2.add((StringValue) findViewById3);
                     } else if (findViewById3 instanceof TextView) {
-                        arrayList = this.a.f;
-                        arrayList.add(new b((TextView) findViewById3));
                     }
                 }
             }
         } catch (Error e) {
             e.printStackTrace();
         }
-        alertDialog = this.a.g;
-        alertDialog.show();
-        alertDialog2 = this.a.g;
-        alertDialog2.getWindow().setFlags(1024, 1024);
-        alertDialog3 = this.a.g;
-        alertDialog3.getWindow().setLayout(-1, -1);
     }
 }

@@ -14,6 +14,6 @@ public final class j implements DialogInterface.OnCancelListener {
 
     @Override // android.content.DialogInterface.OnCancelListener
     public final void onCancel(DialogInterface dialogInterface) {
-        this.a.d = 0;
+        // cancel
     }
 }
